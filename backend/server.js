@@ -12,7 +12,7 @@ dotenv.config();
 connect_db();
 app.use(express.json())
 
-const PORT = process.env.PORT || 5000; 
+const PORT = process.env.PORT || 3002;
 
 
 app.use('/api/users', userRoutes)
@@ -20,7 +20,7 @@ app.use('/api/notes', noteRoutes)
 
 // deployment
 __dirname = path.resolve()
-if (process.env.NODE_ENV ==='production') {
+if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'frontend/build')));
 
     app.get('*', (req, res) => {
